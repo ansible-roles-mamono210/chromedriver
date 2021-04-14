@@ -15,6 +15,7 @@
     - fontconfig
     - GConf2
     - libX11
+    - nss-tools
     - unzip
     - wget
   when: CHROMEDRIVER_INSTALLED is failed
