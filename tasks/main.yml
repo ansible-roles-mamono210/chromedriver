@@ -1,7 +1,7 @@
 ---
 - name: Check whether ChromeDriver is installed
   ansible.builtin.command: chromedriver --version
-  register: CHROMEDRIVER_INSTALLED
+  register: chromedriver_installed
   changed_when: false
   ignore_errors: true
   environment:
@@ -18,21 +18,21 @@
     - nss-tools
     - unzip
     - wget
-  when: CHROMEDRIVER_INSTALLED is failed
+  when: chromedriver_installed is failed
 
 - name: Get latest version of ChromeDriver stable
   ansible.builtin.shell: |
     echo $(wget -qO- https://chromedriver.storage.googleapis.com/LATEST_RELEASE)
-  register: DRIVER_VERSION
-  when: CHROMEDRIVER_INSTALLED is failed
+  register: driver_version
+  when: chromedriver_installed is failed
 
 - name: Install ChromeDriver
   ansible.builtin.unarchive:
     src:
-      "https://chromedriver.storage.googleapis.com/{{ DRIVER_VERSION.stdout }}/chromedriver_linux64.zip"
+      "https://chromedriver.storage.googleapis.com/{{ driver_version.stdout }}/chromedriver_linux64.zip"
     dest: /usr/local/bin
     remote_src: yes
     owner: root
     group: root
     mode: 0755
-  when: CHROMEDRIVER_INSTALLED is failed
+  when: chromedriver_installed is failed
