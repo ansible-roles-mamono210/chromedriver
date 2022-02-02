@@ -3,7 +3,7 @@
 Role Description
 =========
 
-Installs [ChromeDriver](https://chromedriver.chromium.org) for CentOS7.
+Installs [ChromeDriver](https://chromedriver.chromium.org) for CentOS7/Stream8.
 
 Requirements
 ------------
