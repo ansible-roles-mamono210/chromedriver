@@ -7,7 +7,7 @@
       ansible.builtin.command: chromedriver --version
       register: chromedriver_installed
       changed_when: false
-      ignore_errors: True
+      ignore_errors: true
 
     - name: Check OS version
       ansible.builtin.command: cat /etc/redhat-release
