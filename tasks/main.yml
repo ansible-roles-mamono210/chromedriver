@@ -24,6 +24,8 @@
   ansible.builtin.shell: |
     echo $(wget -qO- https://chromedriver.storage.googleapis.com/LATEST_RELEASE)
   register: driver_version
+  changed_when: false
+  failed_when: driver_version.stdout | length == 0
   when: chromedriver_installed is failed
 
 - name: Install ChromeDriver
