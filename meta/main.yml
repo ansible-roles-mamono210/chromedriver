@@ -6,10 +6,10 @@ galaxy_info:
   description: Google ChromeDriver installation for Linux.
   galaxy_tags: []
   license: "license (BSD, MIT)"
-  min_ansible_version: 6.0.0
+  min_ansible_version: 7.0.0
   role_name: chromedriver
   platforms:
     - name: EL
       release:
-        - 7
         - 8
+        - 9
